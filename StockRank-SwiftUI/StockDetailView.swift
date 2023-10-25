@@ -9,10 +9,14 @@ import SwiftUI
 
 struct StockDetailView: View {
     
+    @ObservedObject var viewModel : StockRankViewModel
     @Binding var stock: StockModel
     
     var body: some View {
         VStack(spacing: 40) {
+            
+            Text("# of My favourite: \(viewModel.numOfFavourite)")
+                .font(.system(size: 20, weight: .bold))
             Image(stock.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -22,13 +26,24 @@ struct StockDetailView: View {
             Text("\(stock.price) 원")
                 .font(.system(size: 20, weight: .bold))
                 .foregroundColor(stock.diff > 0 ? .red : .blue)
+            Button(action: {
+                stock.isFavourite.toggle()
+            }, label: {
+                Image(systemName: "heart.fill")
+                    .resizable()
+                    .renderingMode(.template)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80, height: 80)
+                    .foregroundColor(stock.isFavourite ? .red : .white)
+            })
+            
         }
     }
 }
 
 struct StockDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        StockDetailView(stock: .constant(StockModel.list[0]))
+        StockDetailView(viewModel: StockRankViewModel(), stock: .constant(StockModel.list[0]))
             .preferredColorScheme(.dark)
     }
 }

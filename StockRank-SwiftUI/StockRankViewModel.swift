@@ -8,3 +8,11 @@
 import Foundation
 import SwiftUI
 
+final class StockRankViewModel: ObservableObject {
+    @Published var models: [StockModel] = StockModel.list
+    
+    var numOfFavourite: Int {
+        let favouriteStocks = models.filter({ $0.isFavourite })
+        return favouriteStocks.count
+    }
+}
