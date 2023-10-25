@@ -5,5 +5,5 @@ ViewModel, manage the number of hearts
 
 
 
-https://github.com/tony-yun/StockRank-SwiftUI-StateObject/assets/96409645/94f2cf2e-ab14-4640-aeaf-703ed0474620
+https://github.com/tony-yun/StockRank-SwiftUI-StateObject/assets/96409645/cb036e95-8595-4a7d-9639-e4f35ca700db
 
