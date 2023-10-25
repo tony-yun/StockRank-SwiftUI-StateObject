@@ -34,7 +34,7 @@ struct StockDetailView: View {
                     .renderingMode(.template)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 80, height: 80)
-                    .foregroundColor(stock.isFavourite ? .red : .white)
+                    .foregroundColor(stock.isFavourite ? .red : .gray)
             })
             
         }
